@@ -1,10 +1,15 @@
 import { useState } from 'react';
 import './App.css';
 import DrumPad from './DrumPad';
+import * as Tone from 'tone';
 
-//const buttons = ["Q", "W", "E", "A", "S", "D", "Z", "X", "C"]
 function App() {
   const [pad, setPad] = useState(["Q", "W", "E", "A", "S", "D", "Z", "X", "C"]);
+
+function handleClick() {
+  const synth = new Tone.Synth().toDestination();
+  synth.triggerAttackRelease("D1", "1n");
+}
 
   return (
     <div className="App" id="drum-machine">
@@ -17,7 +22,8 @@ function App() {
               className={"drum-pad"}
               key={i}
               id={"" + audioCode}
-              audioCode={audioCode}>
+              audioCode={audioCode}
+              onClick={() => {handleClick()}}>
             </DrumPad>)
         })}
       </>

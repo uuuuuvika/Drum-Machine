@@ -1,6 +1,6 @@
-function DrumPad ({audioCode, className, id}) {
+function DrumPad ({audioCode, className, id, onClick}) {
     return (
-        <button className={className} id={id}>
+        <button className={className} id={id} onClick={onClick}>
             {audioCode}
         </button>
 

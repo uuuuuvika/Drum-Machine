@@ -1,38 +1,38 @@
 [
   {
     "name": "Q",
-    "sound": "C2"
+    "sound": "Qsound"
   },
   {
     "name": "W",
-    "sound": "C2"
+    "sound": "Wsound"
   },
   {
     "name": "E",
-    "sound": "C2"
+    "sound": "Esound"
   },
   {
     "name": "A",
-    "sound": "C2"
+    "sound": "Asound"
   },
   {
     "name": "S",
-    "sound": "C2"
+    "sound": "Ssound"
   },
   {
     "name": "D",
-    "sound": "C2"
+    "sound": "Dsound"
   },
   {
     "name": "Z",
-    "sound": "C2"
+    "sound": "Zsound"
   },
   {
     "name": "X",
-    "sound": "C2"
+    "sound": "Xsound"
   },
   {
     "name": "C",
-    "sound": "C2"
+    "sound": "Csound"
   }
 ]

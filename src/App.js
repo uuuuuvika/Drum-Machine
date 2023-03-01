@@ -2,26 +2,26 @@ import React, { useRef, useEffect, useState } from "react";
 import './App.css';
 import DrumPad from './DrumPad';
 import * as Tone from 'tone';
-import Q from './gongdead.wav';
-import W from './pluckecho.wav';
-import E from './gongdead.wav';
-import A from './pluckecho.wav';
-import S from './gongdead.wav';
-import D from './pluckecho.wav';
-import Z from './gongdead.wav';
-import X from './pluckecho.wav';
-import C from './pluckecho.wav';
+import Q from './accets/gongdead.wav';
+import W from './accets/44click8.wav';
+import E from './accets/kick.mp3';
+import A from './accets/psi-004.wav';
+import S from './accets/cev.mp3';
+import D from './accets/robotstep1.wav';
+import Z from './accets/horrorroom.wav';
+import X from './accets/44click6.wav';
+import C from './accets/explosion2.wav';
 
 const padObjects = [
-  { "sound": Q, pad: "Q" },
-  { "sound": W, pad: "W" },
-  { "sound": E, pad: "E" },
-  { "sound": A, pad: "A" },
-  { "sound": S, pad: "S" },
-  { "sound": D, pad: "D" },
-  { "sound": Z, pad: "Z" },
-  { "sound": X, pad: "X" },
-  { "sound": C, pad: "C" }
+  { sound: Q, pad: "Q" },
+  { sound: W, pad: "W" },
+  { sound: E, pad: "E" },
+  { sound: A, pad: "A" },
+  { sound: S, pad: "S" },
+  { sound: D, pad: "D" },
+  { sound: Z, pad: "Z" },
+  { sound: X, pad: "X" },
+  { sound: C, pad: "C" }
 ]
 
 function App() {

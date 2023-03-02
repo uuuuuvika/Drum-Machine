@@ -1,8 +1,9 @@
+/* @import "./node_modules/nes.css/css/nes.css"; */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Press Start 2P', cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -19,5 +20,84 @@ body {
   top: 50%;
   left: 50%;
   margin-right: -50%;
-  transform: translate(-50%, -50%)
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 8px 8px 5px #202020;
+}
+
+.dark {
+  background-color: blue;
+}
+
+.display-with-range {
+  width: 38%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#display {
+  height: 50%;
+  /* border: 2mm solid black; */
+  background-color: rgb(26, 26, 26);
+  position: relative;
+}
+
+#display p{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+  font-size: small;
+  color: orange;
+}
+
+.drum-pads {
+  width: 60%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 1%;
+  background-color:  #121212;
+  box-shadow: 8px 3px 5px #121212;
+}
+
+/* .drum-pad {
+  box-shadow: 10px 10px 5px #121212;
+} */
+
+.press-space-text {
+  font-size: small;
+}
+
+/* FROM W3 SCHOOL */
+.slider {
+  appearance: none;
+  width: 100%;
+  height: 25%;
+  background-color: rgb(26, 26, 26);
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: orange;
+
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: orange;
 }

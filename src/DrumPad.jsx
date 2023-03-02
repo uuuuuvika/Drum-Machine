@@ -1,18 +1,12 @@
-import React, { useRef } from "react";
 
-function DrumPad({ src, id }) {
+function DrumPad({ src, onClick, i }) {
 
-    const audioRef = useRef(null);
-    
-    function playSound() {
-      audioRef.current.currentTime = 0;
-      audioRef.current.play();
-    }
-  
+    const className = (src.loop ? "drum-pad nes-btn is-error" : "nes-btn is-warning drum-pad");
+
     return (
-      <button className="drum-pad" onClick={playSound} id={id}>
-        <audio src={src} className="clip" ref={audioRef} id={id}></audio>
-        {id}
+      <button className={className} onClick={onClick} id={i}>
+        <audio src={src.sound} className="clip" id={src.pad}></audio>
+        {src.pad}
       </button>
     );
   }

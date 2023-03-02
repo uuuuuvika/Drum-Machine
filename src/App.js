@@ -4,7 +4,7 @@ import DrumPad from './DrumPad';
 import Q from './accets/gongdead.wav';
 import W from './accets/44click8.wav';
 import E from './accets/kick.mp3';
-import A from './accets/psi-004.wav';
+import A from './accets/44gesture1.wav';
 import S from './accets/cev.mp3';
 import D from './accets/robotstep1.wav';
 import Z from './accets/44clickB2.wav';
@@ -26,7 +26,7 @@ const padObjects = [
 function App() {
 
 	const [pad, setPad] = useState(padObjects);
-	const [displayString, setDisplayString] = useState("");
+	const [displayString, setDisplayString] = useState("press space to loop");
 	const [intervalValue, setIntervalValue] = useState(0);
 	const [clock, setClock] = useState(null);
 	const [loopOnSpace, setLoopOnSpace] = useState(false);
@@ -91,12 +91,15 @@ function App() {
 	}
 
 	return (
-		<div className="App nes-container is-rounded is-dark" id="drum-machine">
+		<div className="App nes-container" id="drum-machine">
 			<div className="display-with-range">
-				<div id="display">
+				<div id="display" className="nes-container">
 					<p>{displayString}</p>
 				</div>
-				<input type="range" min="0" max="1000" value={intervalValue} onChange={e => setIntervalValue(e.target.value)} />
+				<div>
+					<input type="range" className="slider" min="0" max="1000" value={intervalValue} onChange={e => setIntervalValue(e.target.value)} />
+					<p className="press-space-text">tempo</p>
+				</div>
 			</div>
 			<div className="drum-pads" ref={drumPadsRef}>
 				{pad.map((pad, i) => {

@@ -26,8 +26,8 @@ const padObjects = [
 function App() {
 
 	const [pad, setPad] = useState(padObjects);
-	const [displayString, setDisplayString] = useState("press space to loop");
-	const [intervalValue, setIntervalValue] = useState(0);
+	const [displayString, setDisplayString] = useState("");
+	const [bytesPerMinute, setBytesPerMinute] = useState(0);
 	const [clock, setClock] = useState(null);
 	const [loopOnSpace, setLoopOnSpace] = useState(false);
 
@@ -57,24 +57,24 @@ function App() {
 	}, [loopOnSpace]);
 
 	useEffect(() => {
-
+		const actualInterval = Math.round(1000 / (bytesPerMinute / 60));
+		console.log(bytesPerMinute)
 		if (clock !== null) {
 			clearInterval(clock);
 		}
 		const newClock = setInterval(() => {
 			pad.forEach(p => {
 				if (p.loop) {
-					let x = document.getElementById(`${p.pad}`);
-					console.log(x);
-					x.currentTime = 0;
-					x.play();
+					let elementToLoop = document.getElementById(`${p.pad}`);
+					elementToLoop.currentTime = 0;
+					elementToLoop.play();
 				}
 			});
-		}, intervalValue);
+		}, actualInterval);
 
 		setClock(newClock);
 
-	}, [intervalValue]);
+	}, [bytesPerMinute]);
 
 
 	function handleClick(i, soundCodeKey) {
@@ -94,10 +94,17 @@ function App() {
 		<div className="App nes-container" id="drum-machine">
 			<div className="display-with-range">
 				<div id="display" className="nes-container">
-					<p>{displayString}</p>
+					<div className="display-inner-text">
+						{displayString.length === 0 ? "press space to loop"
+							:
+							<div>
+								{displayString} {bytesPerMinute} b/m
+							</div>
+						}
+					</div>
 				</div>
 				<div>
-					<input type="range" className="slider" min="0" max="1000" value={intervalValue} onChange={e => setIntervalValue(e.target.value)} />
+					<input type="range" className="slider" min="30" max="400" step="20" value={bytesPerMinute} onChange={e => setBytesPerMinute(e.target.value)} />
 					<p className="press-space-text">tempo</p>
 				</div>
 			</div>

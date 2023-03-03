@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/Drum-Machine/static/css/main.68a59772.css",
+    "main.js": "/Drum-Machine/static/js/main.19e6ee55.js",
+    "static/media/explosion2.wav": "/Drum-Machine/static/media/explosion2.5598f377bb293d4acfee.wav",
+    "static/media/44click6.wav": "/Drum-Machine/static/media/44click6.f41cf1fcc4e833a785e9.wav",
+    "static/media/gongdead.wav": "/Drum-Machine/static/media/gongdead.f71f74e79f51bba3cdd8.wav",
+    "static/media/44click8.wav": "/Drum-Machine/static/media/44click8.712beaa353949c3621fa.wav",
+    "static/media/robotstep1.wav": "/Drum-Machine/static/media/robotstep1.23adb2b9d5d57ed3e445.wav",
+    "static/media/44gesture1.wav": "/Drum-Machine/static/media/44gesture1.607a661acd22856019e9.wav",
+    "static/media/44clickB2.wav": "/Drum-Machine/static/media/44clickB2.d851c557e4decb016aaa.wav",
+    "static/media/kick.mp3": "/Drum-Machine/static/media/kick.72881f4bf80d341da208.mp3",
+    "static/media/cev.mp3": "/Drum-Machine/static/media/cev.0b159bd307a31937b138.mp3",
+    "index.html": "/Drum-Machine/index.html",
+    "main.68a59772.css.map": "/Drum-Machine/static/css/main.68a59772.css.map",
+    "main.19e6ee55.js.map": "/Drum-Machine/static/js/main.19e6ee55.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.68a59772.css",
+    "static/js/main.19e6ee55.js"
+  ]
+}

@@ -5,7 +5,7 @@ function DrumPad({ src, onClick, i }) {
 
     return (
       <button className={className} onClick={onClick} id={i}>
-        <audio src={src.sound} className="clip" id={src.pad}></audio>
+        <audio src={src.sound} className="clip" id={src.pad} autobuffer = "true"></audio>
         {src.pad}
       </button>
     );

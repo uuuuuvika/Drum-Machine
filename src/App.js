@@ -36,11 +36,11 @@ function App() {
 	useEffect(() => {
 		let padsWithLoop;
 		padsWithLoop = padObjects.map(obj => Object.assign(obj, { loop: false }));
-
 		function handleKeyDown(event) {
 			const key = event.key.toUpperCase();
 			if (key === ' ') {
-				setLoopOnSpace(!loopOnSpace)
+				setLoopOnSpace(!loopOnSpace);
+				console.log(loopOnSpace)
 			}
 			else {
 				const drumPad = drumPadsRef.current.querySelector(`#${key}`);
@@ -58,7 +58,7 @@ function App() {
 
 	useEffect(() => {
 		const actualInterval = Math.round(1000 / (bytesPerMinute / 60));
-		console.log(bytesPerMinute)
+		console.log(actualInterval)
 		if (clock !== null) {
 			clearInterval(clock);
 		}
@@ -66,8 +66,9 @@ function App() {
 			pad.forEach(p => {
 				if (p.loop) {
 					let elementToLoop = document.getElementById(`${p.pad}`);
+					//elementToLoop.muted=false
+					elementToLoop.play();					
 					elementToLoop.currentTime = 0;
-					elementToLoop.play();
 				}
 			});
 		}, actualInterval);
@@ -80,7 +81,7 @@ function App() {
 	function handleClick(i, soundCodeKey) {
 		if (!loopOnSpace) {
 			let singularSound = document.getElementById(`${soundCodeKey}`);
-			singularSound.play()
+			singularSound.play();
 		}
 		else {
 			pad[i].loop = (!pad[i].loop);
@@ -90,9 +91,10 @@ function App() {
 		setDisplayString(display);
 	}
 
+
 	return (
 		<div id="drum-machine">
-			<h6>------ cuckr 2000 -</h6>
+			<h6>------ zucchiny 2000 -</h6>
 			<div className="working-area">
 				<div className="display-with-range">
 					<div id="display" className="nes-container">
@@ -106,8 +108,8 @@ function App() {
 						</div>
 					</div>
 					<div>
-						<div className="small-text"><p className="p">30 b/m</p> <p className="press-space-text">tempo</p> <p className="p">400 b/m</p></div>
-						<input type="range" className="slider" min="30" max="400" step="20" value={bytesPerMinute} onChange={e => setBytesPerMinute(e.target.value)} />
+						<div className="small-text"><p className="p">30 b/m</p> <p className="press-space-text">tempo</p> <p className="p">200 b/m</p></div>
+						<input type="range" className="slider" min="30" max="200" step="20" value={bytesPerMinute} onChange={e => setBytesPerMinute(e.target.value)} />
 
 					</div>
 				</div>

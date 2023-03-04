@@ -4,14 +4,13 @@
 body {
   margin: 0;
   font-family: 'Press Start 2P', cursive;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: black;
 }
 
 #drum-machine {
   text-align: center;
-  width: 40vw;
-  height: 35vh;
+  width: 45vw;
+  height: 40vh;
   background: rgb(66, 66, 66);
   color: white;
   border-radius: 0.3em;
@@ -29,7 +28,7 @@ body {
   border-bottom: 3mm solid #1f1f1f;
   border-top: 3mm solid #515151;
   border-left: 3mm solid #373737;
-  box-shadow: 1px 2px 5px 3px #3a3a3a;
+  box-shadow: 1px 2px 5px 3px #141414;
 }
 
 h6 {

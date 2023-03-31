@@ -12,15 +12,15 @@ import X from './accets/44click6.wav';
 import C from './accets/explosion2.wav';
 
 const padObjects = [
-	{ sound: Q, pad: "Q" },
-	{ sound: W, pad: "W" },
-	{ sound: E, pad: "E" },
-	{ sound: A, pad: "A" },
-	{ sound: S, pad: "S" },
-	{ sound: D, pad: "D" },
-	{ sound: Z, pad: "Z" },
-	{ sound: X, pad: "X" },
-	{ sound: C, pad: "C" }
+	{ sound: Q, pad: "Q", description: "gong" },
+	{ sound: W, pad: "W", description: "crunch" },
+	{ sound: E, pad: "E", description: "kick" },
+	{ sound: A, pad: "A", description: "error" },
+	{ sound: S, pad: "S", description: "cev" },
+	{ sound: D, pad: "D", description: "robot" },
+	{ sound: Z, pad: "Z", description: "clap" },
+	{ sound: X, pad: "X", description: "grains" },
+	{ sound: C, pad: "C", description: "bomb" }
 ]
 
 function App() {
@@ -36,11 +36,11 @@ function App() {
 	useEffect(() => {
 		let padsWithLoop;
 		padsWithLoop = padObjects.map(obj => Object.assign(obj, { loop: false }));
-
 		function handleKeyDown(event) {
 			const key = event.key.toUpperCase();
 			if (key === ' ') {
-				setLoopOnSpace(!loopOnSpace)
+				setLoopOnSpace(!loopOnSpace);
+				console.log(loopOnSpace)
 			}
 			else {
 				const drumPad = drumPadsRef.current.querySelector(`#${key}`);
@@ -58,7 +58,7 @@ function App() {
 
 	useEffect(() => {
 		const actualInterval = Math.round(1000 / (bytesPerMinute / 60));
-		console.log(bytesPerMinute)
+		console.log(actualInterval)
 		if (clock !== null) {
 			clearInterval(clock);
 		}
@@ -66,8 +66,9 @@ function App() {
 			pad.forEach(p => {
 				if (p.loop) {
 					let elementToLoop = document.getElementById(`${p.pad}`);
+					//elementToLoop.muted=false
+					elementToLoop.play();					
 					elementToLoop.currentTime = 0;
-					elementToLoop.play();
 				}
 			});
 		}, actualInterval);
@@ -80,44 +81,49 @@ function App() {
 	function handleClick(i, soundCodeKey) {
 		if (!loopOnSpace) {
 			let singularSound = document.getElementById(`${soundCodeKey}`);
-			singularSound.play()
+			singularSound.play();
 		}
 		else {
 			pad[i].loop = (!pad[i].loop);
 		}
 		setPad([...pad]);
-		let display = pad[i].pad;
+		let display = pad[i].description;
 		setDisplayString(display);
 	}
 
+
 	return (
-		<div className="App nes-container" id="drum-machine">
-			<div className="display-with-range">
-				<div id="display" className="nes-container">
-					<div className="display-inner-text">
-						{displayString.length === 0 ? "press space to loop"
-							:
-							<div>
-								{displayString} {bytesPerMinute} b/m
-							</div>
-						}
+		<div id="drum-machine">
+			<h6>------ zucchiny 2000 -</h6>
+			<div className="working-area">
+				<div className="display-with-range">
+					<div id="display" className="nes-container">
+						<div className="display-inner-text">
+							{displayString.length === 0 ? "press space to loop"
+								:
+								<div>
+									{displayString} {bytesPerMinute} b/m
+								</div>
+							}
+						</div>
+					</div>
+					<div>
+						<div className="small-text"><p className="p">30 b/m</p> <p className="press-space-text">tempo</p> <p className="p">200 b/m</p></div>
+						<input type="range" className="slider" min="30" max="200" step="20" value={bytesPerMinute} onChange={e => setBytesPerMinute(e.target.value)} />
+
 					</div>
 				</div>
-				<div>
-					<input type="range" className="slider" min="30" max="400" step="20" value={bytesPerMinute} onChange={e => setBytesPerMinute(e.target.value)} />
-					<p className="press-space-text">tempo</p>
+				<div className="drum-pads" ref={drumPadsRef}>
+					{pad.map((pad, i) => {
+						return (
+							<DrumPad
+								i={i}
+								key={i}
+								src={pad}
+								onClick={() => { handleClick(i, pad.pad) }}>
+							</DrumPad>)
+					})}
 				</div>
-			</div>
-			<div className="drum-pads" ref={drumPadsRef}>
-				{pad.map((pad, i) => {
-					return (
-						<DrumPad
-							i={i}
-							key={i}
-							src={pad}
-							onClick={() => { handleClick(i, pad.pad) }}>
-						</DrumPad>)
-				})}
 			</div>
 		</div>
 	);

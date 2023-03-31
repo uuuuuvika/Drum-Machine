@@ -85,6 +85,8 @@ h6 {
 
 .drum-pad {
   box-shadow: 4px 4px 5px 3px #272727;
+  color:  rgb(19, 19, 19);
+  background-color: #515151;
 }
 
 .drum-pad:hover {

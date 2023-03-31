@@ -103,6 +103,9 @@ function App() {
 								:
 								<div>
 									{displayString} {bytesPerMinute} b/m
+									<br></br>
+									<br></br>
+									press space to loop
 								</div>
 							}
 						</div>

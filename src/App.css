@@ -1,9 +1,10 @@
 /* @import "./node_modules/nes.css/css/nes.css"; */
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Unica+One&display=swap');
 
 body {
   margin: 0;
-  font-family: 'Press Start 2P', cursive;
+  font-family: 'Bungee', cursive;
+  font-size: x-large;
   background-color: black;
 }
 
@@ -70,7 +71,7 @@ h6 {
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 0.5em;
-  color: orange;
+  color: rgb(195, 255, 0);
   text-shadow: 2px 2px rgb(93, 0, 0);
 }
 
@@ -86,6 +87,10 @@ h6 {
   box-shadow: 4px 4px 5px 3px #272727;
 }
 
+.drum-pad:hover {
+  opacity: 0.9;
+}
+
 .small-text {
   font-size: 0.5em;
   display: flex;
@@ -98,9 +103,13 @@ h6 {
   color: #000000;
 }
 
+.warning {
+  color: red;
+}
+
 .press-space-text {
   margin: 0;
-  color: orange;
+  color: rgb(195, 255, 0);
   text-shadow: 2px 2px rgb(93, 0, 0);
 }
 
@@ -136,4 +145,13 @@ h6 {
   height: 25px;
   background: rgb(25, 25, 25);
   box-shadow: 2px 2px 2px #000000;
+}
+
+@media screen and (max-width: 912px) {
+  #drum-machine {
+    width: 90vw;
+  }
+}
+@media screen and (max-width: 280px) {
+ 
 }

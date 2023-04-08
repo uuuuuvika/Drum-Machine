@@ -3,6 +3,7 @@
 
 body {
   margin: 0;
+  padding: 0;
   font-family: 'Bungee', cursive;
   font-size: x-large;
   background-color: black;
@@ -150,10 +151,10 @@ h6 {
 }
 
 @media screen and (max-width: 912px) {
+  body {
+    font-size: medium;
+  }
   #drum-machine {
     width: 90vw;
   }
-}
-@media screen and (max-width: 280px) {
- 
 }
